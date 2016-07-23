@@ -4,8 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Taken is a two column minimalist Jekyll theme.
-
-Taken is based on [chapter tumblr theme.](http://theme-chapter.tumblr.com/)
-
-You can fork taken from [here.](https://github.com/vfalanis/taken)
+My name is Denis Roussel.
+I'm a French data scientist working at [datapole](http://www.datapole.com/) for a couple of months now.
+I use R heavily as it is my primary tool at work.
+And the more I use it, the more I like it.

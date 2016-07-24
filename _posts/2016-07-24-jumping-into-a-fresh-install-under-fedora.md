@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Jumping into a fresh install on fedora
-date: "2016-07-24 18:14:04"
+title:  Jumping into a fresh install under fedora
+date: "2016-07-24 19:05:31"
 published: true
 tags: [linux]
 ---

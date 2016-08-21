@@ -2,7 +2,7 @@
 # need to install the servr package.
 
 all:
-	Rscript -e "servr::jekyll('..')"
+	Rscript -e "servr::jekyll(dir = '..', input = c('.', list.dirs('_source')), output = c('.', rep('_posts', length(list.dirs('_source')))))"
 
 clean:
 	rm -r ../_site

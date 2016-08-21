@@ -1,55 +1,59 @@
 ---
 layout: default
 ---
-<div id="main">
-    <article>
-        <header class="major">
-            <h2 class="post-title">{{ page.title }}</h2>
-                <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-        </header>
+  <section class="wrapper{% if page.options contains 'minihead' %} minihead{% endif %} style5">
+    <div class="inner{% if page.options contains 'fullwidth' %} fullwidth{% endif %}">{%
+      unless site.navlinks == 'none'
+%}{%    if page.categories contains 'works'
+%}{%      assign idxperma = '/works/'
+%}{%      assign idxtitle = 'Works Index'
+%}{%      assign idxbutton = 'Index'
+%}{%      include fn_groupsort_reverse.html unsorted=site.categories.works groupby='priority' sortby='date'
+%}{%    endif
+%}{%    if page.categories.first == 'blog' and page.categories.last != 'blog'
+%}{%      assign idxperma = page.categories | join: '/' | prepend: '/' | append: '/'
+%}{%      assign idxtitle = 'Start page'
+%}{%      assign idxbutton = 'Start'
+%}{%      assign sorted_list = site.empty_array
+%}{%      for topic in site.categories.blog
+%}{%        if topic.categories.last == page.categories.last
+%}{%          assign sorted_list = sorted_list | push: topic
+%}{%        endif
+%}{%      endfor
+%}{%      assign sorted_list = sorted_list | sort: 'date'
+%}{%    endif
+%}{%  endunless
+%}{%  if sorted_list and (site.navlinks == 'top' or site.navlinks == 'both')
+%}{%    include fn_sortednav.html posclass='btntop'
+%}{%  endif
+%}{%  unless page.options contains 'minihead' %}
+      <span id="post-date">{{ page.date  | date: "%-d %B %Y" }}</span><hr
+        style="margin-top:3px;" />{%
+      endunless
+%}{%  if page.categories contains 'works' and page.tags %}
+      <h4>Skills</h4>
+  {%    assign work = page
+%}{%    include techlist.html %}
+  {%  endif
+%}
 
-        <section>
-            {{ content }}
-        </section>
-        
-        <footer>
-            <div class="row">
-            {% if page.previous %}
-            
-                <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt">
-                    <header>
-                        <h2><a href="{{ page.previous.url }}">{{ page.previous.title }}</a></h2>
-                    </header>
-                    <section>
-                        {{ page.previous.excerpt }}
-                    </section>
-                    <footer>
-                        <ul class="actions">
-                            <li><a href="{{ page.previous.url }}" class="button">Read More</a></li>
-                        </ul>
-                    </footer>
-                </article>
-            {% endif %}
-            
-            {% if page.next %}
-            
-                <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt f-right">
-                    <header>
-                        <h2><a href="{{ page.next.url }}">{{ page.next.title }}</a></h2>
-                    </header>
-                    <section>
-                        {{ page.next.excerpt | markdownify }}
-                    </section>
-                    <footer>
-                        <ul class="actions">
-                            <li><a href="{{ page.next.url }}" class="button">Read More</a></li>
-                        </ul>
-                    </footer>
-                </article>
-            {% endif %}
-            </div>
-        </footer>
+      {{ content }}{%
 
-    </article>
 
-</div>
+      if sorted_list and (site.navlinks == 'bottom' or site.navlinks == 'both')
+%}{%    unless perma
+%}{%      assign perma = '/blog/'
+%}{%    endunless
+%}{%    include fn_sortednav.html posclass='btnbottom'
+%}{%  endif
+%}{%  unless page.author == 'none'
+%}{%    include author-block.html %}
+  {%  endunless
+%}{%  if jekyll.environment == "production"
+%}{%    unless page.options contains nocomment or page.categories contains 'works'
+%}{%      include disqus.html %}
+  {%    endunless
+%}{%  endif
+%}
+    </div>
+  </section>

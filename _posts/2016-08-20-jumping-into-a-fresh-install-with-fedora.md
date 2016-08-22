@@ -1,0 +1,194 @@
+---
+title:  Jumping into a fresh install with Fedora
+excerpt: How to get a system up to date with all necessary tools
+background-image: bg-fresh_install_fedora.jpg
+categories: blog
+date: "2016-08-21 23:38:41"
+author: denrou
+tags: [linux]
+---
+
+Like every operating system, a Linux based system is regularly updated.
+Period between updates depends on the distribution which is used.
+For example, a *rolling release* distribution such as *Arch Linux* will be continuously updated, whereas a distribution like *Fedora* will have major updates once in a while (generaly every 6 months).
+
+I use *Fedora* for few reasons: i) I like *Gnome*, the official desktop environment; ii) it is really easy to manage; and iii) it has very recent versions of the softwares I use.
+
+When a major update comes up, I face two possibilities:
+
+1. upgrade the system with the built-in tools
+2. re-install the whole system
+
+Upgrading the system does not erase any program, configuration file or document.
+It simply replaces programs by their newest version.
+On the contrary, a fresh install will delete everything, and we get only core packages installed.
+
+The reason I prefer the later is that it allows me to keep my system clean.
+It's also the occasion to review all my documents and clean them too.
+
+This article presents the procedure I use to upgrade the system.
+
+## Things to do *a priori*
+
+### Backup
+
+It goes without saying, but it's better to say it, **a fresh install WILL erase everything on the disk.**
+So I need to backup my documents and all the files I want to keep.
+There are plenty of solutions to do that.
+I use *rsync* because it's a simple command line tool which has prooved to be powerfull and has a good documentation.
+
+Here's a simple script I use to make my backup:
+
+
+```bash
+# Used for the name of the backup
+TIME=$(date "+%y%m%d")
+
+# Directories to backup
+TO_BACKUP="/home/denis"
+
+# Directory which will store the backup
+BACKUP_TO="/données/Backup_"$TIME
+
+# Time to backup
+rsync -az $TO_BACKUP $BACKUP_TO
+```
+
+*Note:*  
+The directory `/données` is a link to a hard drive which will not be erased.
+Also, I only save my home directory but one could also want to save other directories such as `/usr/local/bin` or `/opt`.
+
+### Prepare the support
+
+This part consists in downloading [the latest version of Fedora](https://getfedora.org/fr/workstation/download/) and put it in a USB stick.
+I can't simply copy the file into a USB key, because an `iso` file is just a container.
+But here again, a simple command line do the job:
+
+
+```bash
+dd if=~/Téléchargements/latest-fedora-version.iso of=/dev/sdX
+```
+
+where `/dev/sdX` is the path to the USB stick (usualy `sdb` or `sdc`).
+
+Check [the official documentation](https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/) to learn more about how to get this done.
+
+## Install
+
+Now that everything's set, I can boot on the USB key and follow the install wizard.
+There's nothing to do in particular, I select my primary hard drive and erase everything from it.
+Here again, [the documentation](https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/) is helpful.
+
+## Things to do _a posteriori_
+
+I have now a basic system up and running, with only core packages installed.
+
+But it is very likely that core packages are not enough for a specific usage.
+At least it's not for me.
+
+So here's the script I can run to get everything I need:
+
+
+```bash
+#!/bin/bash
+
+# let's be root first
+su -
+
+# first
+dnf update
+
+# mount the disks
+mkdir /données # create mount point
+echo -e "/dev/sda1 /données\t\text4 defaults" >> /etc/fstab # to mount the disk at startup
+mount /données # mount the disk now
+
+# backup
+LATEST_BACKUP=$(ls /données | grep "Backup_" | sort | tail -n 1)
+rsync -a $LATEST_BACKUP/* /home
+
+# SSH
+cp -r $LATEST_BACKUP/denis/.ssh /home/denis
+
+# manage passwords
+dnf install pass
+git clone XX.XX.XX.XX:~/.password-store
+
+# gnome-shell extensions
+dnf install $(echo "
+gnome-tweak-tool
+gnome-shell-extension-openweather
+gnome-shell-extension-pomodoro
+gnome-terminal-nautilus
+" | sed ':a;N;$!ba;s/\n/ /g')
+
+# rpm fusion
+sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
+# multimedia
+dnf install mpv
+
+# photo manager
+cp -r ${BACKUP}/denis/.local/share/shotwell /home/denis/.local/share # main database
+cp -r ${BACKUP}/denis/.cache/shotwell /home/denis/.cache/ # thumbnails
+
+# image treatment
+dnf install $(echo "
+gimp
+inkscape
+" | sed ':a;N;$!ba;s/\n/ /g')
+
+# personnal fonts
+cp -r ${BACKUP}/denis/.fonts /home/denis/
+cp -r ${BACKUP}/denis/.local/share/fonts /home/denis/.local/share/
+
+# R
+dnf install R
+R cmd install $(echo "
+  'devtools',
+  'dplyr',
+  'ggvis',
+  'knitr',
+  'htmltools',
+  'leaflet',
+  'RColorBrewer',
+  'rmarkdown',
+  'shiny',
+  'stringr',
+  'tidyr'
+" | sed ':a;N;$!ba;s/\n/ /g')
+
+# LaTeX
+dnf install $(echo "
+texlive 
+texlive-babel-french* 
+texlive-placeins* 
+texlive-siunitx* 
+texlive-tabulary* 
+texlive-multirow* 
+texlive-circuitikz* 
+texlive-pgfplots* 
+texlive-tocbibind* 
+texlive-minitoc* 
+texlive-silence* 
+texlive-glossaries* 
+texlive-lettre* 
+texlive-hyperref* 
+texlive-xetex 
+'tex(eu1enc.def)' 
+texlive-textpos* 
+texlive-biblatex 
+texlive-framed* 
+texlive-titling*
+texstudio
+qt5-qtsvg
+" | sed ':a;N;$!ba;s/\n/ /g')
+fmtutil --all
+```
+
+## Notes
+
+- To mount a disk at startup, check [the official documentation](https://docs.fedoraproject.org/en-US/Fedora/14/html/Storage_Administration_Guide/s3-disk-storage-parted-create-part-fstab.html).
+- An interesting extension for Libreoffice is [Grammalect](http://www.dicollecte.org/grammalecte/telecharger.php), a powerfull check spelling.
+- [rstudio](https://www.rstudio.com/products/rstudio/download/) is also not available as a package yet.
+

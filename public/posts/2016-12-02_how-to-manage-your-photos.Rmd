@@ -1,0 +1,160 @@
+---
+date: 2016-12-02T18:00:24+01:00
+draft: false
+image:
+  feature: "/images/bg-manage-photos.jpg"
+  credit: "New-Zealand - 2016"
+title: "How to manage your photos"
+---
+
+I'm back from a month of vacation in New-Zealand. No need to say it was awesome and I loved it! During this trip, I shot numerous photos from panoramas to funny pictures or art objects. In total, I shot a little more than 8000 times with my camera during those 22 days, not counting all the photos I deleted in place because there were blurred or not aligned or duplicated. It might seems a lot but there are two things to consider:
+
+* I don't have a wide angle lens and I love panoramas. Therefore I usually take multiple photos which I stitch afterwards.
+* Because I love outdoor pictures, I often encounter a large contrast between the sky and the shadows.
+Cameras can't picture this contrast as is and I have to make a choice between distinguish the color of the sky or what's in the shadow. For that reason, I usually take multiple photos of the same spot but with different exposures, from a very bright picture were we see every details in the shadow (long exposure) to a very dark picture were we see every details in the clouds for example (short exposure). And I don't take just 2 pictures, but 5 to 7 pictures each time so I have a large range of exposure. This technique is called High Dynamic Range (HDR) and is often used to create over-realistic images.
+
+Now sometimes, I want to take a panorama in HDR. Therefore, if I need 10 photos for the panorama, I'll shoot 50 times! Just for one landscape. This explains the 8000+ shots taken.
+
+Of course, I don't want to go through each of the picture to decide wether it's a panorama, a HDR or a single photo which need to be sorted and I want to automate as many thing as possible.
+
+## Organise yourself
+
+There are six steps I need to achieve:
+
+1) Extract the photos from the camera and backup them
+2) Copy the photos in a separate folders depending on how they should be assembled (panorama or HDR or panorama+HDR)
+3) Assemble the HDR and the panorama to create single picture
+4) Copy all the pictures in a single folder
+5) Sort every pictures by Date/Location/whatever
+6) Manually filter all the picture I like (or dislike), tag them, ...
+
+We see that only the last step has to be done manually (for now). The idea is to end up with 300 to 500 pictures that I can look to decide whether or not I like them, tag the person/location in them, ...
+
+I'll detail here my workflow to get this done.
+
+## Extract the photos
+
+CTRL+C / CTRL+V. What did you expect?
+
+## Copy photos to separate folders
+
+The goal here is to separate every photos which need a special treatment (HDR, panorama, timelapse). Once separated, the same process will be used for the pictures in a folder.
+
+During my trip, I kept track of the photo I've taken in a notebook.
+I think it's always a good thing to keep track of the picture, like where was it taken, at which occasion, what were we doing, who is on the picture, what's the background, the name of the submit/beach, ...
+A good picture is a picture you can tell a story about.
+
+So I compiled my notes and build a csv file where groups of pictures are listed. This file looks like this:
+
+```{r, message = FALSE, echo=FALSE}
+library(dplyr)
+library(DT)
+read.csv("2016-12-02_how-to-manage-your-photos_type_photos.csv") %>% 
+  select(Type, First, Last) %>% 
+  datatable(options = list(searching = FALSE))
+```
+
+So the first column indicates what type of picture was taken. The second and third column indicates the first and last ID of the photo. Indeed my photos are saved by default in the form "IMG_XXXX.jpg" where XXXX is an ID.
+
+```{bash, eval=FALSE}
+#!/bin/bash
+
+
+time_start=$(date "+%Y-%m-%d %H:%M:%S")
+echo -e "$time_start\tScript is starting"
+
+# Create global variables
+MAIN_FOLDER="$(pwd)"
+IMPORTED_FOLDER='./Imported'
+PHOTOS_FOLDER='./Photos'
+HDR_FOLDER='./HDR'
+PANORAMA_FOLDER='./Panorama'
+TIMELAPSE_FOLDER='./Timelapse'
+DETAILS_PHOTOS='type_photos.csv'
+
+rm -rf $HDR_FOLDER
+rm -rf $PANORAMA_FOLDER
+rm -rf $TIMELAPSE_FOLDER    
+
+if [ ! -d $PHOTOS_FOLDER ]
+then
+    mkdir $PHOTOS_FOLDER
+    cp $IMPORTED_FOLDER/*.JPG $PHOTOS_FOLDER
+    exiftool "-DateTimeOriginal+=0:0:0 11:00:00" $PHOTOS_FOLDER
+    rm $PHOTOS_FOLDER/*_original
+fi
+if [ ! -d $HDR_FOLDER ]
+then
+    mkdir $HDR_FOLDER
+fi
+if [ ! -d $PANORAMA_FOLDER ]
+then
+    mkdir $PANORAMA_FOLDER
+fi
+if [ ! -d $TIMELAPSE_FOLDER ]
+then
+    mkdir $TIMELAPSE_FOLDER
+fi
+
+i=0
+while IFS="" read -r line || [[ -n "$line" ]]
+do
+    if [[ $i > 0 ]]
+    then
+        type=$(echo $line | awk -F , '{print $1}')
+        first_label=$(printf "%04d" $(echo $line | awk -F , '{print $2}'))
+        first_image="IMG_$first_label.JPG"
+        if [ -f $PHOTOS_FOLDER/$first_image ]
+        then
+            datetime=$(exiftool -d '%Y-%m-%d' -DateTimeOriginal -S -s -ext jpg $PHOTOS_FOLDER/$first_image)
+        fi
+        last_label=$(echo $line | awk -F , '{print $3}')
+        comment=$(echo $line | awk -F , '{print $4}')
+        hdr=""
+        origin=$PHOTOS_FOLDER
+        if [[ $first_label > $last_label ]]
+        then
+            labels=$(seq $first_label 9999 ; seq 1 $last_label)
+        else
+            labels=$(seq $first_label $last_label)
+        fi
+        labels=$(printf "%04d " $labels)
+        if [[ $type == "Panorama" ]]
+        then
+            destination=$PANORAMA_FOLDER
+        elif [[ $type == "Timelapse" ]]
+        then
+            destination=$TIMELAPSE_FOLDER
+        else
+            if [[ $(find $PHOTOS_FOLDER -name $first_image | wc -l) == 1 ]]
+            then
+                destination=$HDR_FOLDER
+            else
+                destination=$PANORAMA_FOLDER
+                origin=$PANORAMA_FOLDER/$datetime
+                hdr="HDR"
+            fi
+        fi
+        destination="$destination/$datetime"
+        if [[ ! -d $destination ]]
+        then
+            mkdir -p $destination
+        fi
+        if [[ $hdr == "HDR" ]]
+        then
+            origin="$origin/$num_photo"
+            num2_photo=$(ls $destination/$num_photo/$hdr | wc -l | xargs echo '1+' | bc | xargs printf '%03d')
+        else
+            num_photo=$(ls $destination | wc -l | xargs echo '1+' | bc | xargs printf '%03d')
+            num2_photo=""
+        fi
+        destination="$destination/$num_photo/$hdr/$num2_photo"
+        
+        mkdir -p $destination
+        images=$(find $origin -regex "$origin/IMG_\($(echo $labels | sed -e 's/ /\\|/g')\).JPG" | xargs echo -n)
+        echo "mv $images $destination"
+        mv $images $destination
+    fi
+    let i++ 
+done < $DETAILS_PHOTOS
+```

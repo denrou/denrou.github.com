@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Natural data LovR</title>
+    <link>/index.xml</link>
+    <description>Recent content on Natural data LovR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Dec 2016 18:00:24 +0100</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to manage your photos</title>
+      <link>/posts/2016-12-02_how-to-manage-your-photos/</link>
+      <pubDate>Fri, 02 Dec 2016 18:00:24 +0100</pubDate>
+      
+      <guid>/posts/2016-12-02_how-to-manage-your-photos/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;I’m back from a month of vacation in New-Zealand. No need to say it was awesome and I loved it! During this trip, I shot numerous photos from panoramas to funny pictures or art objects. In total, I shot a little more than 8000 times with my camera during those 22 days, not counting all the photos I deleted in place because there were blurred or not aligned or duplicated. It might seems a lot but there are two things to consider:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I don’t have a wide angle lens and I love panoramas. Therefore I usually take multiple photos which I stitch afterwards.&lt;/li&gt;
+&lt;li&gt;Because I love outdoor pictures, I often encounter a large contrast between the sky and the shadows. Cameras can’t picture this contrast as is and I have to make a choice between distinguish the color of the sky or what’s in the shadow. For that reason, I usually take multiple photos of the same spot but with different exposures, from a very bright picture were we see every details in the shadow (long exposure) to a very dark picture were we see every details in the clouds for example (short exposure). And I don’t take just 2 pictures, but 5 to 7 pictures each time so I have a large range of exposure. This technique is called High Dynamic Range (HDR) and is often used to create over-realistic images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now sometimes, I want to take a panorama in HDR. Therefore, if I need 10 photos for the panorama, I’ll shoot 50 times! Just for one landscape. This explains the 8000+ shots taken.&lt;/p&gt;
+&lt;p&gt;Of course, I don’t want to go through each of the picture to decide wether it’s a panorama, a HDR or a single photo which need to be sorted and I want to automate as many thing as possible.&lt;/p&gt;
+&lt;div id=&#34;organise-yourself&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Organise yourself&lt;/h2&gt;
+&lt;p&gt;There are six steps I need to achieve:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Extract the photos from the camera and backup them&lt;/li&gt;
+&lt;li&gt;Copy the photos in a separate folders depending on how they should be assembled (panorama or HDR or panorama+HDR)&lt;/li&gt;
+&lt;li&gt;Assemble the HDR and the panorama to create single picture&lt;/li&gt;
+&lt;li&gt;Copy all the pictures in a single folder&lt;/li&gt;
+&lt;li&gt;Sort every pictures by Date/Location/whatever&lt;/li&gt;
+&lt;li&gt;Manually filter all the picture I like (or dislike), tag them, …&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We see that only the last step has to be done manually (for now). The idea is to end up with 300 to 500 pictures that I can look to decide whether or not I like them, tag the person/location in them, …&lt;/p&gt;
+&lt;p&gt;I’ll detail here my workflow to get this done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extract-the-photos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extract the photos&lt;/h2&gt;
+&lt;p&gt;CTRL+C / CTRL+V. What did you expect?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;copy-photos-to-separate-folders&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Copy photos to separate folders&lt;/h2&gt;
+&lt;p&gt;The goal here is to separate every photos which need a special treatment (HDR, panorama, timelapse). Once separated, the same process will be used for the pictures in a folder.&lt;/p&gt;
+&lt;p&gt;During my trip, I kept track of the photo I’ve taken in a notebook. I think it’s always a good thing to keep track of the picture, like where was it taken, at which occasion, what were we doing, who is on the picture, what’s the background, the name of the submit/beach, … A good picture is a picture you can tell a story about.&lt;/p&gt;
+&lt;p&gt;So I compiled my notes and build a csv file where groups of pictures are listed. This file looks like this:&lt;/p&gt;
+&lt;div id=&#34;htmlwidget-46319237f8885c02b27a&#34; style=&#34;width:100%;height:auto;&#34; class=&#34;datatables html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-46319237f8885c02b27a&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;,&#34;31&#34;,&#34;32&#34;,&#34;33&#34;,&#34;34&#34;,&#34;35&#34;,&#34;36&#34;,&#34;37&#34;,&#34;38&#34;,&#34;39&#34;,&#34;40&#34;,&#34;41&#34;,&#34;42&#34;,&#34;43&#34;,&#34;44&#34;,&#34;45&#34;,&#34;46&#34;,&#34;47&#34;,&#34;48&#34;,&#34;49&#34;,&#34;50&#34;,&#34;51&#34;,&#34;52&#34;,&#34;53&#34;,&#34;54&#34;,&#34;55&#34;,&#34;56&#34;,&#34;57&#34;,&#34;58&#34;,&#34;59&#34;,&#34;60&#34;,&#34;61&#34;,&#34;62&#34;,&#34;63&#34;,&#34;64&#34;,&#34;65&#34;,&#34;66&#34;,&#34;67&#34;,&#34;68&#34;,&#34;69&#34;,&#34;70&#34;,&#34;71&#34;,&#34;72&#34;,&#34;73&#34;,&#34;74&#34;,&#34;75&#34;,&#34;76&#34;,&#34;77&#34;,&#34;78&#34;,&#34;79&#34;,&#34;80&#34;,&#34;81&#34;,&#34;82&#34;,&#34;83&#34;,&#34;84&#34;,&#34;85&#34;,&#34;86&#34;,&#34;87&#34;,&#34;88&#34;,&#34;89&#34;,&#34;90&#34;,&#34;91&#34;,&#34;92&#34;,&#34;93&#34;,&#34;94&#34;,&#34;95&#34;,&#34;96&#34;,&#34;97&#34;,&#34;98&#34;,&#34;99&#34;,&#34;100&#34;,&#34;101&#34;,&#34;102&#34;,&#34;103&#34;,&#34;104&#34;,&#34;105&#34;,&#34;106&#34;,&#34;107&#34;,&#34;108&#34;,&#34;109&#34;,&#34;110&#34;,&#34;111&#34;,&#34;112&#34;,&#34;113&#34;,&#34;114&#34;,&#34;115&#34;,&#34;116&#34;,&#34;117&#34;,&#34;118&#34;,&#34;119&#34;,&#34;120&#34;,&#34;121&#34;,&#34;122&#34;,&#34;123&#34;,&#34;124&#34;,&#34;125&#34;,&#34;126&#34;,&#34;127&#34;,&#34;128&#34;,&#34;129&#34;,&#34;130&#34;,&#34;131&#34;,&#34;132&#34;,&#34;133&#34;,&#34;134&#34;,&#34;135&#34;,&#34;136&#34;,&#34;137&#34;,&#34;138&#34;,&#34;139&#34;,&#34;140&#34;,&#34;141&#34;,&#34;142&#34;,&#34;143&#34;,&#34;144&#34;,&#34;145&#34;,&#34;146&#34;,&#34;147&#34;,&#34;148&#34;,&#34;149&#34;,&#34;150&#34;,&#34;151&#34;,&#34;152&#34;,&#34;153&#34;,&#34;154&#34;,&#34;155&#34;,&#34;156&#34;,&#34;157&#34;,&#34;158&#34;,&#34;159&#34;,&#34;160&#34;,&#34;161&#34;,&#34;162&#34;,&#34;163&#34;,&#34;164&#34;,&#34;165&#34;,&#34;166&#34;,&#34;167&#34;,&#34;168&#34;,&#34;169&#34;,&#34;170&#34;,&#34;171&#34;,&#34;172&#34;,&#34;173&#34;,&#34;174&#34;,&#34;175&#34;,&#34;176&#34;,&#34;177&#34;,&#34;178&#34;,&#34;179&#34;,&#34;180&#34;,&#34;181&#34;,&#34;182&#34;,&#34;183&#34;,&#34;184&#34;,&#34;185&#34;,&#34;186&#34;,&#34;187&#34;,&#34;188&#34;,&#34;189&#34;,&#34;190&#34;,&#34;191&#34;,&#34;192&#34;,&#34;193&#34;,&#34;194&#34;,&#34;195&#34;,&#34;196&#34;,&#34;197&#34;,&#34;198&#34;,&#34;199&#34;,&#34;200&#34;,&#34;201&#34;,&#34;202&#34;,&#34;203&#34;,&#34;204&#34;,&#34;205&#34;,&#34;206&#34;,&#34;207&#34;,&#34;208&#34;,&#34;209&#34;,&#34;210&#34;,&#34;211&#34;,&#34;212&#34;,&#34;213&#34;,&#34;214&#34;,&#34;215&#34;,&#34;216&#34;,&#34;217&#34;,&#34;218&#34;,&#34;219&#34;,&#34;220&#34;,&#34;221&#34;,&#34;222&#34;,&#34;223&#34;,&#34;224&#34;,&#34;225&#34;,&#34;226&#34;,&#34;227&#34;,&#34;228&#34;,&#34;229&#34;,&#34;230&#34;,&#34;231&#34;,&#34;232&#34;,&#34;233&#34;,&#34;234&#34;,&#34;235&#34;,&#34;236&#34;,&#34;237&#34;,&#34;238&#34;,&#34;239&#34;,&#34;240&#34;,&#34;241&#34;,&#34;242&#34;,&#34;243&#34;,&#34;244&#34;,&#34;245&#34;,&#34;246&#34;,&#34;247&#34;,&#34;248&#34;,&#34;249&#34;,&#34;250&#34;,&#34;251&#34;,&#34;252&#34;,&#34;253&#34;,&#34;254&#34;,&#34;255&#34;,&#34;256&#34;,&#34;257&#34;,&#34;258&#34;,&#34;259&#34;,&#34;260&#34;,&#34;261&#34;,&#34;262&#34;,&#34;263&#34;,&#34;264&#34;,&#34;265&#34;,&#34;266&#34;,&#34;267&#34;,&#34;268&#34;,&#34;269&#34;,&#34;270&#34;,&#34;271&#34;,&#34;272&#34;,&#34;273&#34;,&#34;274&#34;,&#34;275&#34;,&#34;276&#34;,&#34;277&#34;,&#34;278&#34;,&#34;279&#34;,&#34;280&#34;,&#34;281&#34;,&#34;282&#34;,&#34;283&#34;,&#34;284&#34;,&#34;285&#34;,&#34;286&#34;,&#34;287&#34;,&#34;288&#34;,&#34;289&#34;,&#34;290&#34;,&#34;291&#34;,&#34;292&#34;,&#34;293&#34;,&#34;294&#34;,&#34;295&#34;,&#34;296&#34;,&#34;297&#34;,&#34;298&#34;,&#34;299&#34;,&#34;300&#34;,&#34;301&#34;,&#34;302&#34;,&#34;303&#34;,&#34;304&#34;,&#34;305&#34;,&#34;306&#34;,&#34;307&#34;,&#34;308&#34;,&#34;309&#34;,&#34;310&#34;,&#34;311&#34;,&#34;312&#34;,&#34;313&#34;,&#34;314&#34;,&#34;315&#34;,&#34;316&#34;,&#34;317&#34;,&#34;318&#34;,&#34;319&#34;,&#34;320&#34;,&#34;321&#34;,&#34;322&#34;,&#34;323&#34;,&#34;324&#34;,&#34;325&#34;,&#34;326&#34;,&#34;327&#34;,&#34;328&#34;,&#34;329&#34;,&#34;330&#34;,&#34;331&#34;,&#34;332&#34;,&#34;333&#34;,&#34;334&#34;,&#34;335&#34;,&#34;336&#34;,&#34;337&#34;,&#34;338&#34;,&#34;339&#34;,&#34;340&#34;,&#34;341&#34;,&#34;342&#34;,&#34;343&#34;,&#34;344&#34;,&#34;345&#34;,&#34;346&#34;,&#34;347&#34;,&#34;348&#34;,&#34;349&#34;,&#34;350&#34;,&#34;351&#34;,&#34;352&#34;,&#34;353&#34;,&#34;354&#34;,&#34;355&#34;,&#34;356&#34;,&#34;357&#34;,&#34;358&#34;,&#34;359&#34;,&#34;360&#34;,&#34;361&#34;,&#34;362&#34;,&#34;363&#34;,&#34;364&#34;,&#34;365&#34;,&#34;366&#34;,&#34;367&#34;,&#34;368&#34;,&#34;369&#34;,&#34;370&#34;,&#34;371&#34;,&#34;372&#34;,&#34;373&#34;,&#34;374&#34;,&#34;375&#34;,&#34;376&#34;,&#34;377&#34;,&#34;378&#34;,&#34;379&#34;,&#34;380&#34;,&#34;381&#34;,&#34;382&#34;,&#34;383&#34;,&#34;384&#34;,&#34;385&#34;,&#34;386&#34;,&#34;387&#34;,&#34;388&#34;,&#34;389&#34;,&#34;390&#34;,&#34;391&#34;,&#34;392&#34;,&#34;393&#34;,&#34;394&#34;,&#34;395&#34;,&#34;396&#34;,&#34;397&#34;,&#34;398&#34;,&#34;399&#34;,&#34;400&#34;,&#34;401&#34;,&#34;402&#34;,&#34;403&#34;,&#34;404&#34;,&#34;405&#34;,&#34;406&#34;,&#34;407&#34;,&#34;408&#34;,&#34;409&#34;,&#34;410&#34;,&#34;411&#34;,&#34;412&#34;,&#34;413&#34;,&#34;414&#34;,&#34;415&#34;,&#34;416&#34;,&#34;417&#34;,&#34;418&#34;,&#34;419&#34;,&#34;420&#34;,&#34;421&#34;,&#34;422&#34;,&#34;423&#34;,&#34;424&#34;,&#34;425&#34;,&#34;426&#34;,&#34;427&#34;,&#34;428&#34;,&#34;429&#34;,&#34;430&#34;,&#34;431&#34;,&#34;432&#34;,&#34;433&#34;,&#34;434&#34;,&#34;435&#34;,&#34;436&#34;,&#34;437&#34;,&#34;438&#34;,&#34;439&#34;,&#34;440&#34;,&#34;441&#34;,&#34;442&#34;,&#34;443&#34;,&#34;444&#34;,&#34;445&#34;,&#34;446&#34;,&#34;447&#34;,&#34;448&#34;,&#34;449&#34;,&#34;450&#34;,&#34;451&#34;,&#34;452&#34;,&#34;453&#34;,&#34;454&#34;,&#34;455&#34;,&#34;456&#34;,&#34;457&#34;,&#34;458&#34;,&#34;459&#34;,&#34;460&#34;,&#34;461&#34;,&#34;462&#34;,&#34;463&#34;,&#34;464&#34;,&#34;465&#34;,&#34;466&#34;,&#34;467&#34;,&#34;468&#34;,&#34;469&#34;,&#34;470&#34;,&#34;471&#34;,&#34;472&#34;,&#34;473&#34;,&#34;474&#34;,&#34;475&#34;,&#34;476&#34;,&#34;477&#34;,&#34;478&#34;,&#34;479&#34;,&#34;480&#34;,&#34;481&#34;,&#34;482&#34;,&#34;483&#34;,&#34;484&#34;,&#34;485&#34;,&#34;486&#34;,&#34;487&#34;,&#34;488&#34;,&#34;489&#34;,&#34;490&#34;,&#34;491&#34;,&#34;492&#34;,&#34;493&#34;,&#34;494&#34;,&#34;495&#34;,&#34;496&#34;,&#34;497&#34;,&#34;498&#34;,&#34;499&#34;,&#34;500&#34;,&#34;501&#34;,&#34;502&#34;,&#34;503&#34;,&#34;504&#34;,&#34;505&#34;,&#34;506&#34;,&#34;507&#34;,&#34;508&#34;,&#34;509&#34;,&#34;510&#34;,&#34;511&#34;,&#34;512&#34;,&#34;513&#34;,&#34;514&#34;,&#34;515&#34;,&#34;516&#34;,&#34;517&#34;,&#34;518&#34;,&#34;519&#34;,&#34;520&#34;,&#34;521&#34;,&#34;522&#34;,&#34;523&#34;,&#34;524&#34;,&#34;525&#34;,&#34;526&#34;,&#34;527&#34;,&#34;528&#34;,&#34;529&#34;,&#34;530&#34;,&#34;531&#34;,&#34;532&#34;,&#34;533&#34;,&#34;534&#34;,&#34;535&#34;,&#34;536&#34;,&#34;537&#34;,&#34;538&#34;,&#34;539&#34;,&#34;540&#34;,&#34;541&#34;,&#34;542&#34;,&#34;543&#34;,&#34;544&#34;,&#34;545&#34;,&#34;546&#34;,&#34;547&#34;,&#34;548&#34;,&#34;549&#34;,&#34;550&#34;,&#34;551&#34;,&#34;552&#34;,&#34;553&#34;,&#34;554&#34;,&#34;555&#34;,&#34;556&#34;,&#34;557&#34;,&#34;558&#34;,&#34;559&#34;,&#34;560&#34;,&#34;561&#34;,&#34;562&#34;,&#34;563&#34;,&#34;564&#34;,&#34;565&#34;,&#34;566&#34;,&#34;567&#34;,&#34;568&#34;,&#34;569&#34;,&#34;570&#34;,&#34;571&#34;,&#34;572&#34;,&#34;573&#34;,&#34;574&#34;,&#34;575&#34;,&#34;576&#34;,&#34;577&#34;,&#34;578&#34;,&#34;579&#34;,&#34;580&#34;,&#34;581&#34;,&#34;582&#34;,&#34;583&#34;,&#34;584&#34;,&#34;585&#34;,&#34;586&#34;,&#34;587&#34;,&#34;588&#34;,&#34;589&#34;,&#34;590&#34;,&#34;591&#34;,&#34;592&#34;,&#34;593&#34;,&#34;594&#34;,&#34;595&#34;,&#34;596&#34;,&#34;597&#34;,&#34;598&#34;,&#34;599&#34;,&#34;600&#34;,&#34;601&#34;,&#34;602&#34;,&#34;603&#34;,&#34;604&#34;,&#34;605&#34;],[&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Timelapse&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Timelapse&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;Timelapse&#34;,&#34;Timelapse&#34;,&#34;Timelapse&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;HDR&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;,&#34;Panorama&#34;],[5193,5220,5264,5279,5319,5389,5403,5403,5406,5409,5412,5415,5418,5421,5424,5427,5429,5432,5434,5443,5538,5551,5562,5566,5579,5583,5619,5691,5704,5709,5714,5719,5724,5729,5734,5739,5745,5751,5757,5763,5763,5767,5771,5775,5779,5783,5787,5792,5797,5803,5806,5810,5910,5912,5920,5920,5924,5927,5931,5935,5942,5942,5946,5950,5954,5959,5959,5962,5966,5970,5974,5976,5981,5985,5987,5990,5993,5997,6000,6004,6045,6056,6075,6075,6078,6081,6084,6087,6087,6090,6102,6106,6106,6110,6114,6117,6121,6135,6135,6138,6142,6145,6150,6150,6154,6159,6162,6165,6168,6171,6174,6179,6179,6184,6189,6194,6198,6207,6218,6227,6250,6250,6255,6260,6265,6270,6275,6291,6309,6309,6314,6320,6325,6332,6338,6363,6369,6369,6374,6379,6384,6389,6394,6399,6404,6409,6414,6414,6419,6424,6429,6434,6439,6444,6449,6454,6459,6464,6469,6474,6479,6484,6489,6494,6499,6504,6509,6514,6519,6524,6529,6547,6547,6552,6557,6562,6567,6572,6577,6582,6587,6592,6597,6602,6607,6612,6617,6622,6627,6638,6643,6643,6648,6653,6658,6663,6668,6673,6678,6683,6688,6693,6698,6703,6708,6722,6722,6727,6732,6737,6742,6747,6752,6757,6762,6767,6772,6772,6777,6782,6787,6828,6828,6833,6838,6843,6848,6853,6858,6863,6907,6907,6912,6917,6922,6927,6932,6937,6942,6947,6979,6979,6984,6989,6994,6999,7004,7009,7014,7019,7024,7049,7049,7056,7063,7070,7077,7077,7084,7091,7098,7105,7112,7119,7148,7251,7251,7258,7265,7272,7286,7327,7327,7334,7341,7348,7381,7381,7384,7387,7390,7393,7396,7413,7413,7420,7427,7434,7454,7455,7461,7468,7475,7503,7813,7813,7820,7827,7834,7841,7848,7857,7857,7864,7871,7878,7885,7892,7899,7906,7913,7920,7927,7934,7941,7948,7955,7962,7969,7976,7983,7990,7997,8006,8013,8029,8034,8034,8041,8048,8055,8062,8069,8076,8083,8090,8112,8112,8119,8126,8133,8140,8147,8154,8161,8169,8176,8448,8455,8470,8474,8500,8500,8505,8510,8515,8533,8533,8538,8543,8548,8553,8558,8570,8614,8620,8628,8638,8644,8737,8742,8792,8792,8797,8802,8807,8841,8849,8859,8872,8872,8879,8886,8893,8900,8907,8922,8941,8941,8948,8955,8962,8969,8976,8990,8997,9026,9050,9062,9069,9085,9122,9153,9281,9281,9288,9295,9302,9309,9316,9323,9330,9337,9344,9351,9358,9365,9372,9379,9386,9393,9400,9431,9464,9464,9471,9478,9485,9492,9499,9506,9513,9521,9528,9544,9544,9551,9558,9565,9571,9581,9604,9610,9610,9617,9624,9631,9638,9645,9657,9657,9664,9671,9678,9685,9694,9701,9701,9708,9715,9722,9729,9736,9740,9751,9758,9765,9772,9772,9779,9786,9793,9852,9852,9859,9866,9873,9880,9887,9894,9901,9908,9915,9922,9929,9936,9943,9950,9957,9964,9964,9969,9974,9984,9984,9991,9998,6,13,13,20,27,34,41,48,56,62,62,69,76,83,90,103,103,110,117,124,131,138,145,152,176,183,194,200,200,207,215,219,226,233,240,247,260,266,282,587,703,1149,1156,1163,1174,1188,1188,1195,1202,1209,1235,1235,1242,1249,1256,1263,1270,1277,1285,1285,1292,1299,1306,1327,1334,1341,1363,1374,1374,1381,1388,1395,1395,1402,1409,1416,1423,1430,1437,1444,1451,1458,1465,1472,1479,1501,1508,1515,1522,1522,1529,1536,1543,1569,1569,1576,1583,1590,1639,1706,1706,1713,1720,1727,1734,1804,1819,1863],[5218,5226,5278,5309,5372,5402,5433,5405,5408,5411,5414,5417,5420,5423,5426,5428,5431,5433,5436,5456,5546,5560,5565,5570,5582,5602,5685,5694,5708,5713,5718,5723,5728,5733,5738,5744,5750,5756,5762,5796,5766,5770,5774,5778,5782,5786,5791,5796,5800,5805,5809,5813,5911,5914,5934,5923,5926,5930,5934,5938,5958,5945,5949,5953,5958,5973,5961,5965,5969,5973,6007,5980,5984,5986,5989,5992,5996,5999,6003,6007,6048,6058,6086,6077,6080,6083,6086,6092,6089,6092,6105,6124,6109,6113,6116,6120,6124,6148,6137,6141,6144,6149,6177,6153,6158,6161,6164,6167,6170,6173,6177,6201,6183,6188,6193,6197,6201,6210,6220,6231,6277,6254,6259,6264,6269,6274,6279,6295,6342,6313,6318,6324,6329,6336,6342,6367,6413,6373,6378,6383,6388,6393,6398,6403,6408,6413,6493,6418,6423,6428,6433,6438,6443,6448,6453,6458,6463,6468,6473,6478,6483,6488,6493,6498,6503,6508,6513,6518,6523,6528,6533,6626,6551,6556,6561,6566,6571,6576,6581,6586,6591,6596,6601,6606,6611,6616,6621,6626,6631,6642,6712,6647,6652,6657,6662,6667,6672,6677,6682,6687,6692,6697,6702,6707,6712,6771,6726,6731,6736,6741,6746,6751,6756,6761,6766,6771,6791,6776,6781,6786,6791,6866,6832,6837,6842,6847,6852,6857,6862,6867,6941,6911,6916,6921,6926,6931,6936,6941,6946,6963,7028,6983,6988,6993,6998,7003,7008,7013,7018,7023,7028,7076,7055,7062,7069,7076,7125,7083,7090,7097,7104,7111,7118,7125,7150,7278,7257,7264,7271,7278,7292,7354,7333,7340,7347,7354,7398,7383,7386,7389,7392,7395,7398,7440,7419,7426,7433,7440,7460,7481,7467,7474,7481,7793,7854,7819,7826,7833,7840,7847,7854,8003,7863,7870,7877,7884,7891,7898,7905,7912,7919,7926,7933,7940,7947,7954,7961,7968,7975,7982,7989,7996,8003,8012,8019,8032,8089,8040,8047,8054,8061,8068,8075,8082,8089,8096,8167,8118,8125,8132,8139,8146,8153,8160,8167,8175,8440,8454,8459,8473,8478,8519,8504,8509,8514,8519,8562,8537,8542,8547,8552,8557,8562,8572,8617,8624,8632,8642,8648,8741,8746,8806,8796,8801,8806,8811,8845,8854,8864,8912,8877,8884,8891,8898,8905,8912,8926,8980,8946,8953,8960,8967,8974,8980,8994,9003,9044,9056,9068,9075,9091,9129,9159,9405,9287,9294,9301,9308,9315,9322,9329,9336,9343,9350,9357,9364,9371,9378,9385,9392,9399,9405,9434,9519,9470,9477,9484,9491,9498,9505,9512,9519,9527,9534,9578,9550,9557,9564,9571,9578,9587,9609,9651,9616,9623,9630,9637,9644,9651,9684,9663,9670,9677,9684,9691,9700,9735,9707,9714,9721,9728,9735,9739,9746,9757,9764,9771,9799,9778,9785,9792,9799,9963,9858,9865,9872,9879,9886,9893,9900,9907,9914,9921,9928,9935,9942,9949,9956,9963,9978,9968,9973,9978,12,9990,9997,5,12,54,19,26,33,40,47,54,61,96,68,75,82,89,96,158,109,116,123,130,137,144,151,158,182,189,198,213,206,213,217,225,232,239,246,253,262,273,570,693,1141,1155,1162,1167,1178,1215,1194,1201,1208,1213,1255,1241,1249,1255,1262,1269,1276,1283,1312,1291,1298,1305,1312,1333,1340,1347,1365,1394,1380,1387,1394,1485,1401,1408,1415,1422,1429,1436,1443,1450,1457,1464,1471,1478,1485,1507,1514,1521,1549,1528,1535,1542,1549,1596,1575,1582,1589,1596,1705,1740,1712,1719,1726,1733,1740,1810,1833,1880]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; \u003c/th&gt;\n      &lt;th&gt;Type\u003c/th&gt;\n      &lt;th&gt;First\u003c/th&gt;\n      &lt;th&gt;Last\u003c/th&gt;\n    \u003c/tr&gt;\n  \u003c/thead&gt;\n\u003c/table&gt;&#34;,&#34;options&#34;:{&#34;searching&#34;:false,&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[2,3]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false},&#34;selection&#34;:{&#34;mode&#34;:&#34;multiple&#34;,&#34;selected&#34;:null,&#34;target&#34;:&#34;row&#34;}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;So the first column indicates what type of picture was taken. The second and third column indicates the first and last ID of the photo. Indeed my photos are saved by default in the form “IMG_XXXX.jpg” where XXXX is an ID.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;#!/bin/bash
+
+
+time_start=$(date &amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;)
+echo -e &amp;quot;$time_start\tScript is starting&amp;quot;
+
+# Create global variables
+MAIN_FOLDER=&amp;quot;$(pwd)&amp;quot;
+IMPORTED_FOLDER=&amp;#39;./Imported&amp;#39;
+PHOTOS_FOLDER=&amp;#39;./Photos&amp;#39;
+HDR_FOLDER=&amp;#39;./HDR&amp;#39;
+PANORAMA_FOLDER=&amp;#39;./Panorama&amp;#39;
+TIMELAPSE_FOLDER=&amp;#39;./Timelapse&amp;#39;
+DETAILS_PHOTOS=&amp;#39;type_photos.csv&amp;#39;
+
+rm -rf $HDR_FOLDER
+rm -rf $PANORAMA_FOLDER
+rm -rf $TIMELAPSE_FOLDER    
+
+if [ ! -d $PHOTOS_FOLDER ]
+then
+    mkdir $PHOTOS_FOLDER
+    cp $IMPORTED_FOLDER/*.JPG $PHOTOS_FOLDER
+    exiftool &amp;quot;-DateTimeOriginal+=0:0:0 11:00:00&amp;quot; $PHOTOS_FOLDER
+    rm $PHOTOS_FOLDER/*_original
+fi
+if [ ! -d $HDR_FOLDER ]
+then
+    mkdir $HDR_FOLDER
+fi
+if [ ! -d $PANORAMA_FOLDER ]
+then
+    mkdir $PANORAMA_FOLDER
+fi
+if [ ! -d $TIMELAPSE_FOLDER ]
+then
+    mkdir $TIMELAPSE_FOLDER
+fi
+
+i=0
+while IFS=&amp;quot;&amp;quot; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]
+do
+    if [[ $i &amp;gt; 0 ]]
+    then
+        type=$(echo $line | awk -F , &amp;#39;{print $1}&amp;#39;)
+        first_label=$(printf &amp;quot;%04d&amp;quot; $(echo $line | awk -F , &amp;#39;{print $2}&amp;#39;))
+        first_image=&amp;quot;IMG_$first_label.JPG&amp;quot;
+        if [ -f $PHOTOS_FOLDER/$first_image ]
+        then
+            datetime=$(exiftool -d &amp;#39;%Y-%m-%d&amp;#39; -DateTimeOriginal -S -s -ext jpg $PHOTOS_FOLDER/$first_image)
+        fi
+        last_label=$(echo $line | awk -F , &amp;#39;{print $3}&amp;#39;)
+        comment=$(echo $line | awk -F , &amp;#39;{print $4}&amp;#39;)
+        hdr=&amp;quot;&amp;quot;
+        origin=$PHOTOS_FOLDER
+        if [[ $first_label &amp;gt; $last_label ]]
+        then
+            labels=$(seq $first_label 9999 ; seq 1 $last_label)
+        else
+            labels=$(seq $first_label $last_label)
+        fi
+        labels=$(printf &amp;quot;%04d &amp;quot; $labels)
+        if [[ $type == &amp;quot;Panorama&amp;quot; ]]
+        then
+            destination=$PANORAMA_FOLDER
+        elif [[ $type == &amp;quot;Timelapse&amp;quot; ]]
+        then
+            destination=$TIMELAPSE_FOLDER
+        else
+            if [[ $(find $PHOTOS_FOLDER -name $first_image | wc -l) == 1 ]]
+            then
+                destination=$HDR_FOLDER
+            else
+                destination=$PANORAMA_FOLDER
+                origin=$PANORAMA_FOLDER/$datetime
+                hdr=&amp;quot;HDR&amp;quot;
+            fi
+        fi
+        destination=&amp;quot;$destination/$datetime&amp;quot;
+        if [[ ! -d $destination ]]
+        then
+            mkdir -p $destination
+        fi
+        if [[ $hdr == &amp;quot;HDR&amp;quot; ]]
+        then
+            origin=&amp;quot;$origin/$num_photo&amp;quot;
+            num2_photo=$(ls $destination/$num_photo/$hdr | wc -l | xargs echo &amp;#39;1+&amp;#39; | bc | xargs printf &amp;#39;%03d&amp;#39;)
+        else
+            num_photo=$(ls $destination | wc -l | xargs echo &amp;#39;1+&amp;#39; | bc | xargs printf &amp;#39;%03d&amp;#39;)
+            num2_photo=&amp;quot;&amp;quot;
+        fi
+        destination=&amp;quot;$destination/$num_photo/$hdr/$num2_photo&amp;quot;
+        
+        mkdir -p $destination
+        images=$(find $origin -regex &amp;quot;$origin/IMG_\($(echo $labels | sed -e &amp;#39;s/ /\\|/g&amp;#39;)\).JPG&amp;quot; | xargs echo -n)
+        echo &amp;quot;mv $images $destination&amp;quot;
+        mv $images $destination
+    fi
+    let i++ 
+done &amp;lt; $DETAILS_PHOTOS&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+&lt;script src=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/htmlwidgets-0.8/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/jquery-1.12.4/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/datatables-binding-0.2/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/dt-core-1.10.12/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/dt-core-1.10.12/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;#####../content/posts/2016-12-02_how-to-manage-your-photos_files/dt-core-1.10.12/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jumping into a fresh install with Fedora</title>
+      <link>/posts/2016-08-20_jumping-into-a-fresh-install-with-fedora/</link>
+      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-08-20_jumping-into-a-fresh-install-with-fedora/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;Like every operating system, a Linux based system is regularly updated. Period between updates depends on the distribution which is used. For example, a &lt;em&gt;rolling release&lt;/em&gt; distribution such as &lt;em&gt;Arch Linux&lt;/em&gt; will be continuously updated, whereas a distribution like &lt;em&gt;Fedora&lt;/em&gt; will have major updates once in a while (generaly every 6 months).&lt;/p&gt;
+&lt;p&gt;I use &lt;em&gt;Fedora&lt;/em&gt; for few reasons: i) I like &lt;em&gt;Gnome&lt;/em&gt;, the official desktop environment; ii) it is really easy to manage; and iii) it has very recent versions of the softwares I use.&lt;/p&gt;
+&lt;p&gt;When a major update comes up, I face two possibilities:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;upgrade the system with the built-in tools&lt;/li&gt;
+&lt;li&gt;re-install the whole system&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Upgrading the system does not erase any program, configuration file or document. It simply replaces programs by their newest version. On the contrary, a fresh install will delete everything, and we get only core packages installed.&lt;/p&gt;
+&lt;p&gt;The reason I prefer the later is that it allows me to keep my system clean. It’s also the occasion to review all my documents and clean them too.&lt;/p&gt;
+&lt;p&gt;This article presents the procedure I use to upgrade the system.&lt;/p&gt;
+&lt;div id=&#34;things-to-do-a-priori&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Things to do &lt;em&gt;a priori&lt;/em&gt;&lt;/h2&gt;
+&lt;div id=&#34;backup&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Backup&lt;/h3&gt;
+&lt;p&gt;It goes without saying, but it’s better to say it, &lt;strong&gt;a fresh install WILL erase everything on the disk.&lt;/strong&gt; So I need to backup my documents and all the files I want to keep. There are plenty of solutions to do that. I use &lt;em&gt;rsync&lt;/em&gt; because it’s a simple command line tool which has prooved to be powerfull and has a good documentation.&lt;/p&gt;
+&lt;p&gt;Here’s a simple script I use to make my backup:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;TIME=$(date &amp;quot;+%y%m%d&amp;quot;)
+TO_BACKUP=&amp;quot;/home/denis&amp;quot;
+BACKUP_TO=&amp;quot;/données/Backup_&amp;quot;$TIME
+rsync -az $TO_BACKUP $BACKUP_TO&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;br /&gt;
+The directory &lt;code&gt;/données&lt;/code&gt; is a link to a hard drive which will not be erased. Also, I only save my home directory but one could also want to save other directories such as &lt;code&gt;/usr/local/bin&lt;/code&gt; or &lt;code&gt;/opt&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prepare-the-support&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Prepare the support&lt;/h3&gt;
+&lt;p&gt;This part consists in downloading &lt;a href=&#34;https://getfedora.org/fr/workstation/download/&#34;&gt;the latest version of Fedora&lt;/a&gt; and put it in a USB stick. I can’t simply copy the file into a USB key, because an &lt;code&gt;iso&lt;/code&gt; file is just a container. But here again, a simple command line do the job:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;dd if=~/Téléchargements/latest-fedora-version.iso of=/dev/sdX&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;/dev/sdX&lt;/code&gt; is the path to the USB stick (usualy &lt;code&gt;sdb&lt;/code&gt; or &lt;code&gt;sdc&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Check &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/&#34;&gt;the official documentation&lt;/a&gt; to learn more about how to get this done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install&lt;/h2&gt;
+&lt;p&gt;Now that everything’s set, I can boot on the USB key and follow the install wizard. There’s nothing to do in particular, I select my primary hard drive and erase everything from it. Here again, &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/&#34;&gt;the documentation&lt;/a&gt; is helpful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;things-to-do-a-posteriori&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Things to do &lt;em&gt;a posteriori&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;I have now a basic system up and running, with only core packages installed.&lt;/p&gt;
+&lt;p&gt;But it is very likely that core packages are not enough for a specific usage. At least it’s not for me.&lt;/p&gt;
+&lt;p&gt;So here’s the script I can run to get everything I need:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;#!/bin/bash
+
+# let&amp;#39;s be root first
+su -
+
+# first
+dnf update
+
+# mount the disks
+mkdir /données # create mount point
+echo -e &amp;quot;/dev/sda1 /données\t\text4 defaults&amp;quot; &amp;gt;&amp;gt; /etc/fstab # to mount the disk at startup
+mount /données # mount the disk now
+
+# backup
+LATEST_BACKUP=$(ls /données | grep &amp;quot;Backup_&amp;quot; | sort | tail -n 1)
+rsync -a $LATEST_BACKUP/* /home
+
+# SSH
+cp -r $LATEST_BACKUP/denis/.ssh /home/denis
+
+# manage passwords
+dnf install pass
+git clone XX.XX.XX.XX:~/.password-store
+
+# gnome-shell extensions
+dnf install $(echo &amp;quot;
+gnome-tweak-tool
+gnome-shell-extension-openweather
+gnome-shell-extension-pomodoro
+gnome-terminal-nautilus
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# rpm fusion
+dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
+# multimedia
+dnf install mpv
+
+# photo manager
+cp -r ${BACKUP}/denis/.local/share/shotwell /home/denis/.local/share # main database
+cp -r ${BACKUP}/denis/.cache/shotwell /home/denis/.cache/ # thumbnails
+
+# image treatment
+dnf install $(echo &amp;quot;
+gimp
+inkscape
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# personnal fonts
+cp -r ${BACKUP}/denis/.fonts /home/denis/
+cp -r ${BACKUP}/denis/.local/share/fonts /home/denis/.local/share/
+
+# R
+dnf install R
+R cmd install $(echo &amp;quot;
+  &amp;#39;blogdown&amp;#39;,
+  &amp;#39;devtools&amp;#39;,
+  &amp;#39;dplyr&amp;#39;,
+  &amp;#39;ggvis&amp;#39;,
+  &amp;#39;knitr&amp;#39;,
+  &amp;#39;htmltools&amp;#39;,
+  &amp;#39;leaflet&amp;#39;,
+  &amp;#39;RColorBrewer&amp;#39;,
+  &amp;#39;rmarkdown&amp;#39;,
+  &amp;#39;shiny&amp;#39;,
+  &amp;#39;stringr&amp;#39;,
+  &amp;#39;tidyr&amp;#39;
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# LaTeX
+dnf install $(echo &amp;quot;
+texlive 
+texlive-babel-french* 
+texlive-placeins* 
+texlive-siunitx* 
+texlive-tabulary* 
+texlive-multirow* 
+texlive-circuitikz* 
+texlive-pgfplots* 
+texlive-tocbibind* 
+texlive-minitoc* 
+texlive-silence* 
+texlive-glossaries* 
+texlive-lettre* 
+texlive-hyperref* 
+texlive-xetex 
+&amp;#39;tex(eu1enc.def)&amp;#39; 
+texlive-textpos* 
+texlive-biblatex 
+texlive-framed* 
+texlive-titling*
+texstudio
+qt5-qtsvg
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+fmtutil --all&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;notes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To mount a disk at startup, check &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/14/html/Storage_Administration_Guide/s3-disk-storage-parted-create-part-fstab.html&#34;&gt;the official documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;An interesting extension for Libreoffice is &lt;a href=&#34;http://www.dicollecte.org/grammalecte/telecharger.php&#34;&gt;Grammalect&lt;/a&gt;, a powerfull check spelling.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/&#34;&gt;rstudio&lt;/a&gt; is also not available as a package yet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

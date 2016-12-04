@@ -1,0 +1,20 @@
+baseurl = ""
+languageCode = "en-gb"
+title = "Natural data LovR"
+theme = "hpstr"
+pluralizelisttitles = false
+PygmentsCodeFences = true
+Paginate = 5
+disqusShortname = ""
+
+[params]
+	subtitle = "Reminder and simple thoughts"
+	[params.author]
+		name = "Denis Roussel"
+		avatar = "/images/avatar.jpg"
+		bio = "Data scientist"
+		github = "denrou"
+	[params.image]
+	  feature = "/images/banner.jpg"
+	  credit = "Islande - 2016"
+	  creditlink = ""

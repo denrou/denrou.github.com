@@ -1,0 +1,171 @@
+---
+title:  Jumping into a fresh install with Fedora
+description: How to get a system up to date with all necessary tools
+image: 
+  feature: "/images/bg-fresh_install_fedora.jpg"
+  credit: "Grand Canyon - USA - 2014"
+date: "2016-08-20"
+author: denrou
+tags: [linux]
+---
+
+
+<!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE -->
+
+<p>Like every operating system, a Linux based system is regularly updated. Period between updates depends on the distribution which is used. For example, a <em>rolling release</em> distribution such as <em>Arch Linux</em> will be continuously updated, whereas a distribution like <em>Fedora</em> will have major updates once in a while (generaly every 6 months).</p>
+<p>I use <em>Fedora</em> for few reasons: i) I like <em>Gnome</em>, the official desktop environment; ii) it is really easy to manage; and iii) it has very recent versions of the softwares I use.</p>
+<p>When a major update comes up, I face two possibilities:</p>
+<ol style="list-style-type: decimal">
+<li>upgrade the system with the built-in tools</li>
+<li>re-install the whole system</li>
+</ol>
+<p>Upgrading the system does not erase any program, configuration file or document. It simply replaces programs by their newest version. On the contrary, a fresh install will delete everything, and we get only core packages installed.</p>
+<p>The reason I prefer the later is that it allows me to keep my system clean. It’s also the occasion to review all my documents and clean them too.</p>
+<p>This article presents the procedure I use to upgrade the system.</p>
+<div id="things-to-do-a-priori" class="section level2">
+<h2>Things to do <em>a priori</em></h2>
+<div id="backup" class="section level3">
+<h3>Backup</h3>
+<p>It goes without saying, but it’s better to say it, <strong>a fresh install WILL erase everything on the disk.</strong> So I need to backup my documents and all the files I want to keep. There are plenty of solutions to do that. I use <em>rsync</em> because it’s a simple command line tool which has prooved to be powerfull and has a good documentation.</p>
+<p>Here’s a simple script I use to make my backup:</p>
+<pre class="bash"><code>TIME=$(date &quot;+%y%m%d&quot;)
+TO_BACKUP=&quot;/home/denis&quot;
+BACKUP_TO=&quot;/données/Backup_&quot;$TIME
+rsync -az $TO_BACKUP $BACKUP_TO</code></pre>
+<p><em>Note:</em><br />
+The directory <code>/données</code> is a link to a hard drive which will not be erased. Also, I only save my home directory but one could also want to save other directories such as <code>/usr/local/bin</code> or <code>/opt</code>.</p>
+</div>
+<div id="prepare-the-support" class="section level3">
+<h3>Prepare the support</h3>
+<p>This part consists in downloading <a href="https://getfedora.org/fr/workstation/download/">the latest version of Fedora</a> and put it in a USB stick. I can’t simply copy the file into a USB key, because an <code>iso</code> file is just a container. But here again, a simple command line do the job:</p>
+<pre class="bash"><code>dd if=~/Téléchargements/latest-fedora-version.iso of=/dev/sdX</code></pre>
+<p>where <code>/dev/sdX</code> is the path to the USB stick (usualy <code>sdb</code> or <code>sdc</code>).</p>
+<p>Check <a href="https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/">the official documentation</a> to learn more about how to get this done.</p>
+</div>
+</div>
+<div id="install" class="section level2">
+<h2>Install</h2>
+<p>Now that everything’s set, I can boot on the USB key and follow the install wizard. There’s nothing to do in particular, I select my primary hard drive and erase everything from it. Here again, <a href="https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/">the documentation</a> is helpful.</p>
+</div>
+<div id="things-to-do-a-posteriori" class="section level2">
+<h2>Things to do <em>a posteriori</em></h2>
+<p>I have now a basic system up and running, with only core packages installed.</p>
+<p>But it is very likely that core packages are not enough for a specific usage. At least it’s not for me.</p>
+<p>So here’s the script I can run to get everything I need:</p>
+<pre class="bash"><code>#!/bin/bash
+
+# let&#39;s be root first
+su -
+
+# first
+dnf update
+
+# mount the disks
+mkdir /données # create mount point
+echo -e &quot;/dev/sda1 /données\t\text4 defaults&quot; &gt;&gt; /etc/fstab # to mount the disk at startup
+mount /données # mount the disk now
+
+# backup
+LATEST_BACKUP=$(ls /données | grep &quot;Backup_&quot; | sort | tail -n 1)
+rsync -a $LATEST_BACKUP/* /home
+
+# SSH
+cp -r $LATEST_BACKUP/denis/.ssh /home/denis
+
+# manage passwords
+dnf install pass
+git clone XX.XX.XX.XX:~/.password-store
+
+# gnome-shell extensions
+dnf install $(echo &quot;
+gnome-tweak-tool
+gnome-shell-extension-openweather
+gnome-shell-extension-pomodoro
+gnome-terminal-nautilus
+&quot; | sed &#39;:a;N;$!ba;s/\n/ /g&#39;)
+
+# rpm fusion
+dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
+# multimedia
+dnf install mpv
+
+# photo manager
+cp -r ${BACKUP}/denis/.local/share/shotwell /home/denis/.local/share # main database
+cp -r ${BACKUP}/denis/.cache/shotwell /home/denis/.cache/ # thumbnails
+
+# image treatment
+dnf install $(echo &quot;
+gimp
+inkscape
+&quot; | sed &#39;:a;N;$!ba;s/\n/ /g&#39;)
+
+# personnal fonts
+cp -r ${BACKUP}/denis/.fonts /home/denis/
+cp -r ${BACKUP}/denis/.local/share/fonts /home/denis/.local/share/
+
+# R
+dnf install R
+R cmd install $(echo &quot;
+  &#39;blogdown&#39;,
+  &#39;devtools&#39;,
+  &#39;dplyr&#39;,
+  &#39;ggvis&#39;,
+  &#39;knitr&#39;,
+  &#39;htmltools&#39;,
+  &#39;leaflet&#39;,
+  &#39;RColorBrewer&#39;,
+  &#39;rmarkdown&#39;,
+  &#39;shiny&#39;,
+  &#39;stringr&#39;,
+  &#39;tidyr&#39;
+&quot; | sed &#39;:a;N;$!ba;s/\n/ /g&#39;)
+
+# LaTeX
+dnf install $(echo &quot;
+texlive 
+texlive-babel-french* 
+texlive-placeins* 
+texlive-siunitx* 
+texlive-tabulary* 
+texlive-multirow* 
+texlive-circuitikz* 
+texlive-pgfplots* 
+texlive-tocbibind* 
+texlive-minitoc* 
+texlive-silence* 
+texlive-glossaries* 
+texlive-lettre* 
+texlive-hyperref* 
+texlive-xetex 
+&#39;tex(eu1enc.def)&#39; 
+texlive-textpos* 
+texlive-biblatex 
+texlive-framed* 
+texlive-titling*
+texstudio
+qt5-qtsvg
+&quot; | sed &#39;:a;N;$!ba;s/\n/ /g&#39;)
+fmtutil --all</code></pre>
+</div>
+<div id="notes" class="section level2">
+<h2>Notes</h2>
+<ul>
+<li>To mount a disk at startup, check <a href="https://docs.fedoraproject.org/en-US/Fedora/14/html/Storage_Administration_Guide/s3-disk-storage-parted-create-part-fstab.html">the official documentation</a>.</li>
+<li>An interesting extension for Libreoffice is <a href="http://www.dicollecte.org/grammalecte/telecharger.php">Grammalect</a>, a powerfull check spelling.</li>
+<li><a href="https://www.rstudio.com/products/rstudio/download/">rstudio</a> is also not available as a package yet.</li>
+</ul>
+</div>
+
+
+
+<!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD -->

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Natural data LovR</title>
+    <link>/tags/linux/index.xml</link>
+    <description>Recent content on Natural data LovR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Jumping into a fresh install with Fedora</title>
+      <link>/posts/2016-08-20_jumping-into-a-fresh-install-with-fedora/</link>
+      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-08-20_jumping-into-a-fresh-install-with-fedora/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;Like every operating system, a Linux based system is regularly updated. Period between updates depends on the distribution which is used. For example, a &lt;em&gt;rolling release&lt;/em&gt; distribution such as &lt;em&gt;Arch Linux&lt;/em&gt; will be continuously updated, whereas a distribution like &lt;em&gt;Fedora&lt;/em&gt; will have major updates once in a while (generaly every 6 months).&lt;/p&gt;
+&lt;p&gt;I use &lt;em&gt;Fedora&lt;/em&gt; for few reasons: i) I like &lt;em&gt;Gnome&lt;/em&gt;, the official desktop environment; ii) it is really easy to manage; and iii) it has very recent versions of the softwares I use.&lt;/p&gt;
+&lt;p&gt;When a major update comes up, I face two possibilities:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;upgrade the system with the built-in tools&lt;/li&gt;
+&lt;li&gt;re-install the whole system&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Upgrading the system does not erase any program, configuration file or document. It simply replaces programs by their newest version. On the contrary, a fresh install will delete everything, and we get only core packages installed.&lt;/p&gt;
+&lt;p&gt;The reason I prefer the later is that it allows me to keep my system clean. It’s also the occasion to review all my documents and clean them too.&lt;/p&gt;
+&lt;p&gt;This article presents the procedure I use to upgrade the system.&lt;/p&gt;
+&lt;div id=&#34;things-to-do-a-priori&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Things to do &lt;em&gt;a priori&lt;/em&gt;&lt;/h2&gt;
+&lt;div id=&#34;backup&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Backup&lt;/h3&gt;
+&lt;p&gt;It goes without saying, but it’s better to say it, &lt;strong&gt;a fresh install WILL erase everything on the disk.&lt;/strong&gt; So I need to backup my documents and all the files I want to keep. There are plenty of solutions to do that. I use &lt;em&gt;rsync&lt;/em&gt; because it’s a simple command line tool which has prooved to be powerfull and has a good documentation.&lt;/p&gt;
+&lt;p&gt;Here’s a simple script I use to make my backup:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;TIME=$(date &amp;quot;+%y%m%d&amp;quot;)
+TO_BACKUP=&amp;quot;/home/denis&amp;quot;
+BACKUP_TO=&amp;quot;/données/Backup_&amp;quot;$TIME
+rsync -az $TO_BACKUP $BACKUP_TO&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;br /&gt;
+The directory &lt;code&gt;/données&lt;/code&gt; is a link to a hard drive which will not be erased. Also, I only save my home directory but one could also want to save other directories such as &lt;code&gt;/usr/local/bin&lt;/code&gt; or &lt;code&gt;/opt&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prepare-the-support&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Prepare the support&lt;/h3&gt;
+&lt;p&gt;This part consists in downloading &lt;a href=&#34;https://getfedora.org/fr/workstation/download/&#34;&gt;the latest version of Fedora&lt;/a&gt; and put it in a USB stick. I can’t simply copy the file into a USB key, because an &lt;code&gt;iso&lt;/code&gt; file is just a container. But here again, a simple command line do the job:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;dd if=~/Téléchargements/latest-fedora-version.iso of=/dev/sdX&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;/dev/sdX&lt;/code&gt; is the path to the USB stick (usualy &lt;code&gt;sdb&lt;/code&gt; or &lt;code&gt;sdc&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Check &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/&#34;&gt;the official documentation&lt;/a&gt; to learn more about how to get this done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install&lt;/h2&gt;
+&lt;p&gt;Now that everything’s set, I can boot on the USB key and follow the install wizard. There’s nothing to do in particular, I select my primary hard drive and erase everything from it. Here again, &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/23/html/Installation_Guide/&#34;&gt;the documentation&lt;/a&gt; is helpful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;things-to-do-a-posteriori&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Things to do &lt;em&gt;a posteriori&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;I have now a basic system up and running, with only core packages installed.&lt;/p&gt;
+&lt;p&gt;But it is very likely that core packages are not enough for a specific usage. At least it’s not for me.&lt;/p&gt;
+&lt;p&gt;So here’s the script I can run to get everything I need:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;#!/bin/bash
+
+# let&amp;#39;s be root first
+su -
+
+# first
+dnf update
+
+# mount the disks
+mkdir /données # create mount point
+echo -e &amp;quot;/dev/sda1 /données\t\text4 defaults&amp;quot; &amp;gt;&amp;gt; /etc/fstab # to mount the disk at startup
+mount /données # mount the disk now
+
+# backup
+LATEST_BACKUP=$(ls /données | grep &amp;quot;Backup_&amp;quot; | sort | tail -n 1)
+rsync -a $LATEST_BACKUP/* /home
+
+# SSH
+cp -r $LATEST_BACKUP/denis/.ssh /home/denis
+
+# manage passwords
+dnf install pass
+git clone XX.XX.XX.XX:~/.password-store
+
+# gnome-shell extensions
+dnf install $(echo &amp;quot;
+gnome-tweak-tool
+gnome-shell-extension-openweather
+gnome-shell-extension-pomodoro
+gnome-terminal-nautilus
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# rpm fusion
+dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
+# multimedia
+dnf install mpv
+
+# photo manager
+cp -r ${BACKUP}/denis/.local/share/shotwell /home/denis/.local/share # main database
+cp -r ${BACKUP}/denis/.cache/shotwell /home/denis/.cache/ # thumbnails
+
+# image treatment
+dnf install $(echo &amp;quot;
+gimp
+inkscape
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# personnal fonts
+cp -r ${BACKUP}/denis/.fonts /home/denis/
+cp -r ${BACKUP}/denis/.local/share/fonts /home/denis/.local/share/
+
+# R
+dnf install R
+R cmd install $(echo &amp;quot;
+  &amp;#39;blogdown&amp;#39;,
+  &amp;#39;devtools&amp;#39;,
+  &amp;#39;dplyr&amp;#39;,
+  &amp;#39;ggvis&amp;#39;,
+  &amp;#39;knitr&amp;#39;,
+  &amp;#39;htmltools&amp;#39;,
+  &amp;#39;leaflet&amp;#39;,
+  &amp;#39;RColorBrewer&amp;#39;,
+  &amp;#39;rmarkdown&amp;#39;,
+  &amp;#39;shiny&amp;#39;,
+  &amp;#39;stringr&amp;#39;,
+  &amp;#39;tidyr&amp;#39;
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+
+# LaTeX
+dnf install $(echo &amp;quot;
+texlive 
+texlive-babel-french* 
+texlive-placeins* 
+texlive-siunitx* 
+texlive-tabulary* 
+texlive-multirow* 
+texlive-circuitikz* 
+texlive-pgfplots* 
+texlive-tocbibind* 
+texlive-minitoc* 
+texlive-silence* 
+texlive-glossaries* 
+texlive-lettre* 
+texlive-hyperref* 
+texlive-xetex 
+&amp;#39;tex(eu1enc.def)&amp;#39; 
+texlive-textpos* 
+texlive-biblatex 
+texlive-framed* 
+texlive-titling*
+texstudio
+qt5-qtsvg
+&amp;quot; | sed &amp;#39;:a;N;$!ba;s/\n/ /g&amp;#39;)
+fmtutil --all&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;notes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To mount a disk at startup, check &lt;a href=&#34;https://docs.fedoraproject.org/en-US/Fedora/14/html/Storage_Administration_Guide/s3-disk-storage-parted-create-part-fstab.html&#34;&gt;the official documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;An interesting extension for Libreoffice is &lt;a href=&#34;http://www.dicollecte.org/grammalecte/telecharger.php&#34;&gt;Grammalect&lt;/a&gt;, a powerfull check spelling.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/&#34;&gt;rstudio&lt;/a&gt; is also not available as a package yet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
